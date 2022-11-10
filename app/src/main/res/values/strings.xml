@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PMDM02_ANDROID_ControlesBasicos</string>
+    <string name="observaciones">Observaciones</string>
+    <string name="formulario_contacto">Formulario de contacto</string>
+    <string name="nombre">Nombre usuario</string>
+    <string name="turno_dia">turno de dia</string>
+    <string name="turno_nocturno">turno de noche</string>
+    <string name="adaptacion">Necesitas adaptación</string>
+    <string name="preferencias">Quieres recibir notificaciones</string>
+    <string name="enviar">Enviar</string>
+</resources>

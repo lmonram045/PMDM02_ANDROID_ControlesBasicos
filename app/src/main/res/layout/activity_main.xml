@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- textAppearance tiene varios estilos predefinidos. -->
+    <!-- Al no tener valores de constraint se irá a la posición 0,0 ignora los absoluteX y absoluteY -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="256dp"
+        android:layout_height="91dp"
+        android:text="@string/formulario_contacto"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_editor_absoluteX="16dp"
+        app:layout_editor_absoluteY="25dp"/>
+
+    <!-- Este solo tiene constraint superior, así que se irá a la izquierda e ignorará el absoluteX -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombre"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_editor_absoluteX="16dp"/>
+
+    <!-- Hint es el texto que aparece en gris cuando no hay nada escrito en el EditText -->
+    <!-- ems es el número de caracteres que se mostrarán en el EditText -->
+    <!-- inputType es el tipo de entrada que se guardará y además mostrará un teclado adecuado al editar  -->
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="@string/nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView2"/>
+
+    <!-- Aquí se agrupan los RadioButtons -->
+    <RadioGroup
+        android:id="@+id/grupo_opciones"
+        android:layout_width="227dp"
+        android:layout_height="91dp"
+        android:textAlignment="textEnd"
+        app:layout_constraintStart_toStartOf="@id/etNombre"
+        app:layout_constraintTop_toBottomOf="@id/etNombre">
+        <RadioButton
+            android:id="@+id/rbDia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/turno_dia"/>
+
+        <RadioButton
+            android:id="@+id/rbNocturno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/turno_nocturno"/>
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/ckAdaptacion"
+        android:layout_width="237dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/adaptacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/grupo_opciones"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swNotificaciones"
+        android:layout_width="248dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/preferencias"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ckAdaptacion"/>
+
+    <!-- Este EditText mostrará un teclado numérico -->
+    <EditText
+        android:id="@+id/etNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/swNotificaciones"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/observaciones"
+        app:layout_constraintStart_toStartOf="@id/swNotificaciones"
+        app:layout_constraintTop_toBottomOf="@id/etNumero" />
+
+    <!-- En las 2 siguientes imágenes se usan iconos de Material Design pre incluidos en android studio -->
+    <ImageButton
+        android:id="@+id/ibImagen"
+        android:layout_width="97dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="16dp"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="@id/textView"
+        app:layout_editor_absoluteY="22dp"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="96dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/ibImagen"
+        app:layout_constraintTop_toBottomOf="@id/ibImagen"
+        app:srcCompat="@android:drawable/ic_menu_call"/>
+
+    <EditText
+        android:id="@+id/etObservaciones"
+        android:layout_width="382dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/observaciones"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+    <Button
+        android:id="@+id/btEnviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/enviar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etObservaciones" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
